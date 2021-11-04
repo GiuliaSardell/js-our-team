@@ -1,8 +1,7 @@
-const teamCard = document.createElement('div');
-teamCard.className='team-card'
+
 const teamContainer = document.querySelector('.team-container')
-teamContainer.append(teamCard)
-console.log(teamCard)
+const formContainer = document.querySelector('.form-container')
+
 let html = '';
 
 const team = [
@@ -71,11 +70,11 @@ for (let i = 0; i < team.length; i++){
               <img src="img/${fotoMembriTeam}"
               alt="${nomeMembriTeam} ${cognomeMembriTeam}"/>
             </div>
-          <div class="card-text">
-            <h3>${nomeMembriTeam} ${cognomeMembriTeam}</h3>
-            <p>${ruoloMembriTeam}</p>
-          </div>
-        </div>`
+            <div class="card-text">
+              <h3>${nomeMembriTeam} ${cognomeMembriTeam}</h3>
+              <p>${ruoloMembriTeam}</p>
+            </div>
+          </div>`
 
 
 }
@@ -84,4 +83,15 @@ for (let i = 0; i < team.length; i++){
 teamContainer.innerHTML = html;
 
 
+document.getElementById('addMemberButton').addEventListener('click', function(){
+  const formName = document.getElementById('name').value;
+  const formRole = document.getElementById('role').value;
+  const formImage = document.getElementById('image').value;
 
+  team.push({formName,formRole,formImage})
+  console.log(team)
+
+
+
+
+})
